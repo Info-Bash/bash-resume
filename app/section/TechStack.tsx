@@ -97,8 +97,8 @@ export default function TechStackSection() {
               />
 
               {/* Icon */}
-              <div className="text-[2rem] mb-3 flex justify-center items-center h-10">
-                {React.cloneElement(iconMap[tech.icon] as React.ReactElement, { color: tech.color })}
+              <div className="text-[2rem] mb-3 flex justify-center items-center h-10" style={{ color: tech.color }}>
+                {iconMap[tech.icon]}
               </div>
 
               <div className="font-display font-semibold text-[0.9rem] text-[var(--text-primary)] mb-1.5">
