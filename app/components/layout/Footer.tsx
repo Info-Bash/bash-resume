@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { GitBranch, Link2, Mail, ArrowUp } from "lucide-react";
 import { personalInfo } from "@/app/lib/data";
 import ThemeToggle from "@/app/ui/theme-toggle";
-import styles from "@/app/components/home.module.css";
+import Image from "next/image";
 
 export default function Footer() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
@@ -19,10 +19,14 @@ export default function Footer() {
       <div className="max-w-[1200px] mx-auto px-6 flex flex-col sm:flex-row items-center sm:justify-between gap-6">
         {/* Logo + copyright */}
         <div className="text-center sm:text-left">
-          <div className="font-mono font-medium text-[1.1rem] text-[var(--accent-blue)] mb-2">
-            &lt;BASH /&gt;
-          </div>
-          <p className="font-mono text-[0.72rem] text-[var(--text-muted)] tracking-[0.04em]">
+          <Image
+            src="/bash-logo.svg"
+            alt="BASH"
+            width={140}
+            height={50}
+            className="mx-auto sm:mx-0"
+          />
+          <p className="font-mono text-[0.72rem] text-[var(--text-muted)] tracking-[0.04em] mt-2">
             © {new Date().getFullYear()} Bashir. Built with Next.js
           </p>
         </div>

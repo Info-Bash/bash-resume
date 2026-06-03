@@ -17,6 +17,7 @@ A modern and responsive resume website built to showcase my professional experie
 * React
 * TypeScript
 * Tailwind CSS
+* Resend
 * Next.js
 
 
@@ -63,7 +64,7 @@ pnpm start
 
 ```text
 app/
-├── app/
+├── api/
 ├── components/
 ├── lib/
 ├── section/

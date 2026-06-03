@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, GitBranch, Link2, Send, CheckCircle, AlertCircle } from "lucide-react";
+import { Mail, GitBranch, Link2, Send, CheckCircle, AlertCircle, XCircle } from "lucide-react";
 import clsx from "clsx";
 import SectionReveal from "@/app/ui/SectionReveal";
 import SectionHeader from "@/app/ui/SectionHeader";
@@ -108,9 +108,21 @@ export default function Contact() {
     e.preventDefault();
     if (!validate()) return;
     setStatus("loading");
-    await new Promise((res) => setTimeout(res, 1500));
-    setStatus("success");
-    setForm({ name: "", email: "", message: "" });
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) throw new Error('Failed');
+
+      setForm({ name: "", email: "", message: "" }); // clear first
+      setStatus("success"); // then show success
+    } catch (err) {
+      setStatus("error"); // form data is preserved so user can retry
+    }
   };
 
   return (
@@ -189,6 +201,26 @@ export default function Contact() {
                     className={`${styles.btnPrimary} mt-6 px-6 py-2.5 text-[0.85rem] sm:text-[0.88rem]`}
                   >
                     Send Another
+                  </button>
+                </motion.div>
+              ) : status === "error" ? (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="text-center p-5 sm:p-8"
+                >
+                  <XCircle size={44} color="#f87171" className="mx-auto mb-4" />
+                  <h3 className="font-display font-bold text-[1.15rem] sm:text-[1.3rem] mb-2">
+                    Something went wrong!
+                  </h3>
+                  <p className="text-[var(--text-secondary)] text-[0.88rem] sm:text-base">
+                    Please try again later.
+                  </p>
+                  <button
+                    onClick={() => setStatus("idle")}
+                    className={`${styles.btnPrimary} mt-6 px-6 py-2.5 text-[0.85rem] sm:text-[0.88rem]`}
+                  >
+                    Try Again
                   </button>
                 </motion.div>
               ) : (

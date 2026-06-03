@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
@@ -67,9 +68,9 @@ export default function Navbar() {
         {/* Logo */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="font-mono font-medium text-[1.1rem] text-[var(--accent-blue)] bg-transparent border-none cursor-pointer tracking-[-0.02em]"
+          className="bg-transparent border-none cursor-pointer"
         >
-          &lt;BASH /&gt;
+          <Image src="/bash-logo.svg" alt="BASH" width={140} height={50} />
         </button>
 
         {/* Desktop Nav */}

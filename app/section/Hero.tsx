@@ -123,7 +123,7 @@ export default function Hero() {
           </button>
 
           <a
-            href="/resume.pdf"
+            href="/Bash-Resume-(2026).pdf"
             download
             className={`${styles.btnSecondary} inline-flex items-center gap-2 px-7 py-3.5 text-[0.95rem] no-underline`}
           >
