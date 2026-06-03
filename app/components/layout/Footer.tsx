@@ -2,7 +2,8 @@
 import { motion } from "framer-motion";
 import { GitBranch, Link2, Mail, ArrowUp } from "lucide-react";
 import { personalInfo } from "@/app/lib/data";
-import ThemeToggle  from "@/app/ui/theme-toggle";
+import ThemeToggle from "@/app/ui/theme-toggle";
+import styles from "@/app/components/home.module.css";
 
 export default function Footer() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
@@ -12,12 +13,12 @@ export default function Footer() {
       {/* Gradient top edge */}
       <div
         aria-hidden="true"
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-px bg-gradient-to-r from-transparent via-[rgba(99,179,237,0.4)] to-transparent"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] max-w-full h-px bg-gradient-to-r from-transparent via-[rgba(99,179,237,0.4)] to-transparent"
       />
 
-      <div className="max-w-[1200px] mx-auto px-6 flex flex-wrap items-center justify-between gap-6">
+      <div className="max-w-[1200px] mx-auto px-6 flex flex-col sm:flex-row items-center sm:justify-between gap-6">
         {/* Logo + copyright */}
-        <div>
+        <div className="text-center sm:text-left">
           <div className="font-mono font-medium text-[1.1rem] text-[var(--accent-blue)] mb-2">
             &lt;BASH /&gt;
           </div>
@@ -26,8 +27,24 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Social icons */}
-        <div className="flex gap-4 items-center">
+        {/* Social icons + controls */}
+        <div className="flex flex-wrap gap-3 items-center justify-center sm:justify-end">
+          {/* Back to top */}
+          <motion.button
+            onClick={scrollToTop}
+            whileHover={{ y: -3, scale: 1.1 }}
+            aria-label="Back to top"
+            className="w-10 h-10 rounded-[10px] bg-blue-400/10 border border-blue-400/20 flex items-center justify-center text-[var(--accent-blue)] cursor-pointer"
+          >
+            <ArrowUp size={18} />
+          </motion.button>
+
+          <ThemeToggle />
+
+
+          {/* Divider */}
+          <div className="w-px h-6 bg-white/10" aria-hidden="true" />
+
           {[
             { href: personalInfo.github, icon: <GitBranch size={18} />, label: "GitHub" },
             { href: personalInfo.linkedin, icon: <Link2 size={18} />, label: "LinkedIn" },
@@ -45,18 +62,6 @@ export default function Footer() {
               {link.icon}
             </motion.a>
           ))}
-
-          {/* Back to top */}
-          <motion.button
-            onClick={scrollToTop}
-            whileHover={{ y: -3, scale: 1.1 }}
-            aria-label="Back to top"
-            className="w-10 h-10 rounded-[10px] bg-blue-400/10 border border-blue-400/20 flex items-center justify-center text-[var(--accent-blue)] cursor-pointer ml-2"
-          >
-            <ArrowUp size={18} />
-          </motion.button>
-
-          <ThemeToggle />
         </div>
       </div>
     </footer>

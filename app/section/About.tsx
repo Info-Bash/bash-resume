@@ -24,13 +24,13 @@ export default function About() {
         />
 
         {/* Two-column layout */}
-        <div className="grid gap-16 items-center [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))]">
+        <div className="grid gap-10 sm:gap-16 items-center grid-cols-1 md:[grid-template-columns:repeat(auto-fit,minmax(300px,1fr))]">
 
           {/* Text content */}
           <div>
             {personalInfo.about.map((paragraph, i) => (
               <SectionReveal key={i} delay={i * 0.1}>
-                <p className="text-[var(--text-secondary)] leading-[1.8] mb-5 text-[1.02rem]">
+                <p className="text-[var(--text-secondary)] leading-[1.8] mb-5 text-[0.95rem] sm:text-[1.02rem]">
                   {paragraph}
                 </p>
               </SectionReveal>
@@ -38,7 +38,7 @@ export default function About() {
 
             {/* Decorative code block */}
             <SectionReveal delay={0.4}>
-              <div className="mt-8 p-5 rounded-xl bg-[var(--bg-card)] border border-[var(--border)] font-mono text-[0.82rem] leading-[1.7]">
+              <div className="mt-6 sm:mt-8 p-4 sm:p-5 rounded-xl bg-[var(--bg-card)] border border-[var(--border)] font-mono text-[0.75rem] sm:text-[0.82rem] leading-[1.7] overflow-x-auto">
                 <span className="text-[#316525]">{"// current focus"}</span>
                 <br />
                 <span className="text-[#a78bfa]">const</span>{" "}
@@ -69,20 +69,20 @@ export default function About() {
           </div>
 
           {/* Stats grid */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
             {stats.map((stat, i) => (
               <SectionReveal key={stat.label} delay={i * 0.1} direction="right">
                 <motion.div
                   whileHover={{ y: -4, scale: 1.02 }}
-                  className={`${styles.glassCard} p-6 text-center cursor-default`}
+                  className={`${styles.glassCard} p-4 sm:p-6 text-center cursor-default`}
                 >
-                  <div className="w-11 h-11 rounded-xl bg-[rgba(96,165,250,0.1)] border border-[rgba(96,165,250,0.2)] flex items-center justify-center mx-auto mb-4 text-[var(--accent-blue)]">
+                  <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-[rgba(96,165,250,0.1)] border border-[rgba(96,165,250,0.2)] flex items-center justify-center mx-auto mb-3 sm:mb-4 text-[var(--accent-blue)]">
                     {iconMap[stat.icon]}
                   </div>
-                  <div className={`${styles.gradientText} font-display text-[2.2rem] font-extrabold leading-none mb-2`}>
+                  <div className={`${styles.gradientText} font-display text-[1.7rem] sm:text-[2.2rem] font-extrabold leading-none mb-1.5 sm:mb-2`}>
                     {stat.value}
                   </div>
-                  <div className="text-[0.78rem] text-[var(--text-secondary)] font-mono tracking-[0.04em]">
+                  <div className="text-[0.7rem] sm:text-[0.78rem] text-[var(--text-secondary)] font-mono tracking-[0.04em]">
                     {stat.label}
                   </div>
                 </motion.div>

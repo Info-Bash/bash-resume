@@ -28,6 +28,7 @@ export default function Projects() {
         />
 
         {/* Tag filter */}
+        {/* Tag filter - scrollable on mobile instead of wrapping messily */}
         <SectionReveal delay={0.2}>
           <div className="flex justify-center flex-wrap gap-2 mb-12">
             {allTags.slice(0, 8).map((tag) => (
@@ -50,31 +51,39 @@ export default function Projects() {
         {/* Project grid */}
         <motion.div
           layout
-          className="grid gap-6 [grid-template-columns:repeat(auto-fill,minmax(340px,1fr))]"
+          className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:[grid-template-columns:repeat(auto-fill,minmax(340px,1fr))]"
         >
           <AnimatePresence mode="popLayout">
             {filtered.map((project, i) => (
               <motion.article
                 key={project.id}
                 layout
-                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4, delay: i * 0.06 }}
-                whileHover={{ y: -8 }}
+                initial={{ opacity: 0, scale: 0.9, y: 24 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.9, y: 12 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{
+                  duration: 0.35,
+                  delay: i * 0.05,
+                  ease: [0.23, 1, 0.32, 1],
+                }}
+                whileHover={{ y: -6, scale: 1.04 }}
+
+
                 className={`${styles.glassCard} overflow-hidden cursor-default flex flex-col group`}
               >
                 {/* Project visual */}
-                <div className="h-[180px] relative overflow-hidden">
+                <div className="h-[160px] sm:h-[180px] relative overflow-hidden">
                   {project.image ? (
                     <Image
                       src={project.image}
                       alt={project.title}
-                      fill
+                      width={500}
+                      height={400}
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   ) : (
-                    // fallback if no image provided
                     <div
                       className="w-full h-full flex items-center justify-center"
                       style={{ background: `linear-gradient(135deg, ${getGradientColors(project.gradient)})` }}
@@ -83,10 +92,8 @@ export default function Projects() {
                     </div>
                   )}
 
-                  {/* Overlay so text stays readable over image */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
 
-                  {/* Featured badge */}
                   {project.featured && (
                     <div className="absolute top-3 right-3 px-2.5 py-0.5 rounded-full bg-white/15 border border-white/25 font-mono text-[0.62rem] text-white/90 tracking-[0.08em] backdrop-blur-[8px]">
                       FEATURED
@@ -94,15 +101,12 @@ export default function Projects() {
                   )}
                 </div>
 
-
-
-
                 {/* Card content */}
-                <div className="p-6 flex-1 flex flex-col">
-                  <h3 className="font-display font-bold text-[1.15rem] text-[var(--text-primary)] mb-2">
+                <div className="p-4 sm:p-6 flex-1 flex flex-col">
+                  <h3 className="font-display font-bold text-[1.05rem] sm:text-[1.15rem] text-[var(--text-primary)] mb-2">
                     {project.title}
                   </h3>
-                  <p className="text-[0.88rem] text-[var(--text-secondary)] leading-[1.65] mb-5 flex-1">
+                  <p className="text-[0.85rem] sm:text-[0.88rem] text-[var(--text-secondary)] leading-[1.65] mb-5 flex-1">
                     {project.description}
                   </p>
 
@@ -116,17 +120,17 @@ export default function Projects() {
                   </div>
 
                   {/* Buttons */}
-                  <div className="flex gap-3">
-                    <a
-                      href={project.liveUrl}
-                      className={`${styles.btnPrimary} inline-flex items-center justify-center gap-1.5 px-[18px] py-2.5 text-[0.82rem] no-underline flex-1`}
+                  <div className="flex gap-2 sm:gap-3">
+
+                    <a href={project.liveUrl}
+                      className={`${styles.btnPrimary} inline-flex items-center justify-center gap-1.5 px-3 sm:px-[18px] py-2.5 text-[0.78rem] sm:text-[0.82rem] no-underline flex-1`}
                     >
                       <ExternalLink size={13} />
                       Live Demo
                     </a>
-                    <a
-                      href={project.githubUrl}
-                      className={`${styles.btnSecondary} inline-flex items-center justify-center gap-1.5 px-[18px] py-2.5 text-[0.82rem] no-underline flex-1`}
+
+                    <a href={project.githubUrl}
+                      className={`${styles.btnSecondary} inline-flex items-center justify-center gap-1.5 px-3 sm:px-[18px] py-2.5 text-[0.78rem] sm:text-[0.82rem] no-underline flex-1`}
                     >
                       <GitBranch size={13} />
                       GitHub

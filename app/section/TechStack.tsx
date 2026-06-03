@@ -16,20 +16,20 @@ import styles from "@/app/components/home.module.css";
 const categories: ("All" | TechCategory)[] = ["All", "Frontend", "Backend", "Database", "Tools"];
 
 const iconMap: Record<string, React.ReactNode> = {
-  SiReact:       <SiReact size={24} />,
-  SiNextdotjs:   <SiNextdotjs size={24} />,
-  SiTypescript:  <SiTypescript size={24} />,
+  SiReact: <SiReact size={24} />,
+  SiNextdotjs: <SiNextdotjs size={24} />,
+  SiTypescript: <SiTypescript size={24} />,
   SiTailwindcss: <SiTailwindcss size={24} />,
-  SiNodedotjs:   <SiNodedotjs size={24} />,
-  SiNestjs:      <SiNestjs size={24} />,
-  SiExpress:     <SiExpress size={24} />,
-  SiPostgresql:  <SiPostgresql size={24} />,
-  SiPrisma:      <SiPrisma size={24} />,
-  SiMongodb:     <SiMongodb size={24} />,
-  SiGit:         <SiGit size={24} />,
-  SiGithub:      <SiGithub size={24} />,
-  SiBootstrap:   <SiBootstrap size={24} />,
-  SiPostman:     <SiPostman size={24} />,
+  SiNodedotjs: <SiNodedotjs size={24} />,
+  SiNestjs: <SiNestjs size={24} />,
+  SiExpress: <SiExpress size={24} />,
+  SiPostgresql: <SiPostgresql size={24} />,
+  SiPrisma: <SiPrisma size={24} />,
+  SiMongodb: <SiMongodb size={24} />,
+  SiGit: <SiGit size={24} />,
+  SiGithub: <SiGithub size={24} />,
+  SiBootstrap: <SiBootstrap size={24} />,
+  SiPostman: <SiPostman size={24} />,
 };
 
 export default function TechStackSection() {
@@ -84,20 +84,29 @@ export default function TechStackSection() {
             <motion.div
               key={tech.name}
               layout
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.3, delay: i * 0.04 }}
+              initial={{ opacity: 0, scale: 0.9, y: 24 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 12 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{
+                duration: 0.35,
+                delay: i * 0.05,
+                ease: [0.23, 1, 0.32, 1],
+              }}
               whileHover={{ y: -6, scale: 1.04 }}
               className={`${styles.glassCard} relative overflow-hidden px-4 py-6 text-center cursor-default`}
             >
               {/* Gradient accent top bar */}
-              <div className="absolute top-0 left-0 right-0 h-[2px] opacity-60"
-              style={{ background: `linear-gradient(90deg, ${tech.color}, transparent)` }}
+              <div
+                className="absolute top-0 left-0 right-0 h-[2px] opacity-60"
+                style={{ background: `linear-gradient(90deg, ${tech.color}, transparent)` }}
               />
 
               {/* Icon */}
-              <div className="text-[2rem] mb-3 flex justify-center items-center h-10" style={{ color: tech.color }}>
+              <div
+                className="text-[2rem] mb-3 flex justify-center items-center h-10"
+                style={{ color: tech.color }}
+              >
                 {iconMap[tech.icon]}
               </div>
 

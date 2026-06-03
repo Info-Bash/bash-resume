@@ -122,21 +122,21 @@ export default function Contact() {
           subtitle="Have a project in mind or want to collaborate? I'd love to hear from you."
         />
 
-        <div className="grid gap-12 [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))]">
+        <div className="grid gap-8 sm:gap-12 grid-cols-1 md:[grid-template-columns:repeat(auto-fit,minmax(300px,1fr))]">
 
           {/* Contact info */}
           <SectionReveal direction="left">
             <div>
-              <h3 className="font-display font-bold text-[1.3rem] mb-4">
+              <h3 className="font-display font-bold text-[1.15rem] sm:text-[1.3rem] mb-3 sm:mb-4">
                 Get In Touch
               </h3>
-              <p className="text-[var(--text-secondary)] leading-[1.75] mb-8">
+              <p className="text-[var(--text-secondary)] leading-[1.75] mb-6 sm:mb-8 text-[0.9rem] sm:text-base">
                 Whether you have a project proposal, want to discuss an opportunity, or just
                 want to say hello - my inbox is always open.
               </p>
 
               {/* Social links */}
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-2.5 sm:gap-3">
                 {socialLinks.map((link) => (
                   <motion.a
                     key={link.label}
@@ -144,19 +144,19 @@ export default function Contact() {
                     target={link.label !== "Email" ? "_blank" : undefined}
                     rel="noopener noreferrer"
                     whileHover={{ x: 6 }}
-                    className="flex items-center gap-4 px-5 py-4 rounded-xl no-underline transition-opacity duration-200"
+                    className="flex items-center gap-3 sm:gap-4 px-4 sm:px-5 py-3 sm:py-4 rounded-xl no-underline transition-opacity duration-200 min-w-0"
                     style={{
                       background: link.color,
                       border: `1px solid ${link.border}`,
                     }}
                   >
-                    <span style={{ color: link.text }}>{link.icon}</span>
-                    <div>
-                      <div className="font-mono text-[0.65rem] tracking-[0.08em] text-[var(--text-muted)] uppercase mb-0.5">
+                    <span className="shrink-0" style={{ color: link.text }}>{link.icon}</span>
+                    <div className="min-w-0">
+                      <div className="font-mono text-[0.62rem] sm:text-[0.65rem] tracking-[0.08em] text-[var(--text-muted)] uppercase mb-0.5">
                         {link.label}
                       </div>
                       <div
-                        className="text-[0.9rem] font-medium"
+                        className="text-[0.82rem] sm:text-[0.9rem] font-medium truncate"
                         style={{ color: link.text }}
                       >
                         {link.value}
@@ -170,23 +170,23 @@ export default function Contact() {
 
           {/* Contact form */}
           <SectionReveal direction="right">
-            <div className={`${styles.glassCard} p-8`}>
+            <div className={`${styles.glassCard} p-5 sm:p-8`}>
               {status === "success" ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="text-center p-8"
+                  className="text-center p-5 sm:p-8"
                 >
-                  <CheckCircle size={48} color="#4ade80" className="mx-auto mb-4" />
-                  <h3 className="font-display font-bold text-[1.3rem] mb-2">
+                  <CheckCircle size={44} color="#4ade80" className="mx-auto mb-4" />
+                  <h3 className="font-display font-bold text-[1.15rem] sm:text-[1.3rem] mb-2">
                     Message Sent!
                   </h3>
-                  <p className="text-[var(--text-secondary)]">
+                  <p className="text-[var(--text-secondary)] text-[0.88rem] sm:text-base">
                     Thanks for reaching out. I&apos;ll get back to you as soon as possible.
                   </p>
                   <button
                     onClick={() => setStatus("idle")}
-                    className={`${styles.btnPrimary} mt-6 px-6 py-2.5 text-[0.88rem]`}
+                    className={`${styles.btnPrimary} mt-6 px-6 py-2.5 text-[0.85rem] sm:text-[0.88rem]`}
                   >
                     Send Another
                   </button>
@@ -195,7 +195,7 @@ export default function Contact() {
                 <form onSubmit={handleSubmit} noValidate>
 
                   {/* Name */}
-                  <div className="mb-5">
+                  <div className="mb-4 sm:mb-5">
                     <FieldLabel htmlFor="name">Name</FieldLabel>
                     <input
                       id="name"
@@ -204,14 +204,14 @@ export default function Contact() {
                       value={form.name}
                       onChange={handleChange}
                       placeholder="Your name"
-                      className={`${styles.formInput} px-4 py-3 text-[0.9rem]`}
+                      className={`${styles.formInput} px-3 sm:px-4 py-2.5 sm:py-3 text-[0.88rem] sm:text-[0.9rem]`}
                       aria-invalid={!!errors.name}
                     />
                     <FieldError message={errors.name} />
                   </div>
 
                   {/* Email */}
-                  <div className="mb-5">
+                  <div className="mb-4 sm:mb-5">
                     <FieldLabel htmlFor="email">Email</FieldLabel>
                     <input
                       id="email"
@@ -220,14 +220,14 @@ export default function Contact() {
                       value={form.email}
                       onChange={handleChange}
                       placeholder="your@email.com"
-                      className={`${styles.formInput} px-4 py-3 text-[0.9rem]`}
+                      className={`${styles.formInput} px-3 sm:px-4 py-2.5 sm:py-3 text-[0.88rem] sm:text-[0.9rem]`}
                       aria-invalid={!!errors.email}
                     />
                     <FieldError message={errors.email} />
                   </div>
 
                   {/* Message */}
-                  <div className="mb-6">
+                  <div className="mb-5 sm:mb-6">
                     <FieldLabel htmlFor="message">Message</FieldLabel>
                     <textarea
                       id="message"
@@ -235,7 +235,7 @@ export default function Contact() {
                       value={form.message}
                       onChange={handleChange}
                       placeholder="Tell me about your project or just say hello..."
-                      className={`${styles.formInput} px-4 py-3 text-[0.9rem] resize-y`}
+                      className={`${styles.formInput} px-3 sm:px-4 py-2.5 sm:py-3 text-[0.88rem] sm:text-[0.9rem] resize-y`}
                       rows={5}
                       aria-invalid={!!errors.message}
                     />
@@ -246,7 +246,7 @@ export default function Contact() {
                     type="submit"
                     disabled={status === "loading"}
                     className={clsx(
-                      `${styles.btnPrimary} w-full py-[13px] text-[0.95rem] flex items-center justify-center gap-2`,
+                      `${styles.btnPrimary} w-full py-3 sm:py-[13px] text-[0.88rem] sm:text-[0.95rem] flex items-center justify-center gap-2`,
                       status === "loading" ? "opacity-70 cursor-not-allowed" : "cursor-pointer"
                     )}
                   >

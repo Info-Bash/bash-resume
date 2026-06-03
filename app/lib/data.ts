@@ -81,7 +81,7 @@ export const projects: Project[] = [
     tags: ["React", "Express", "Bootstrap", "Postman", "JWT", "Bcrypt", "MongoDB", "Mongoose"],
     liveUrl: "https://task-management-app-sigma-eosin.vercel.app",
     githubUrl: "https://github.com/Info-Bash/Task-Management-App",
-    featured: true,
+    featured: false,
     gradient: "from-amber-500 via-orange-500 to-red-600",
   },
 
@@ -95,7 +95,7 @@ export const projects: Project[] = [
     tags: ["React", "TypeScript", "Custom CSS", "Express", "Postman", "REST API", "SQLite"],
     liveUrl: "https://ecommerce-app-topaz-six-31.vercel.app",
     githubUrl: "https://github.com/Info-Bash/ecommerce-app",
-    featured: true,
+    featured: false,
     gradient: "from-emerald-500 via-teal-500 to-cyan-600",
   },
   
@@ -122,7 +122,7 @@ export const projects: Project[] = [
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "NestJS", "JWT", "Bcrypt", "Socket.IO", "PostgreSQL", "Prisma"],
     liveUrl: "#",
     githubUrl: "#",
-    featured: true,
+    featured: false,
     gradient: "from-violet-600 via-purple-600 to-indigo-700",
   },
 ];

@@ -53,7 +53,7 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-[1] max-w-[1200px] mx-auto px-6 pt-20 w-full">
+      <div className="relative z-[1] max-w-[1200px] mx-auto px-6 pt-10 w-full">
 
         {/* Status badge */}
         <motion.div
