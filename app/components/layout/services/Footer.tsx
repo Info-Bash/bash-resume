@@ -1,0 +1,50 @@
+"use client";
+import { motion } from "framer-motion";
+import { ArrowUp } from "lucide-react";
+import ThemeToggle from "@/app/ui/theme-toggle";
+import Image from "next/image";
+
+export default function Footer() {
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
+  return (
+    <footer className="border-t border-white/5 py-12 pb-8 relative">
+      {/* Gradient top edge */}
+      <div
+        aria-hidden="true"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] max-w-full h-px bg-gradient-to-r from-transparent via-[rgba(99,179,237,0.4)] to-transparent"
+      />
+
+      <div className="max-w-[1200px] mx-auto px-6 flex flex-col sm:flex-row items-center sm:justify-between gap-6">
+        {/* Logo + copyright */}
+        <div className="text-center sm:text-left">
+          <Image
+            src="/bash-logo.svg"
+            alt="BASH"
+            width={140}
+            height={50}
+            className="mx-auto sm:mx-0"
+          />
+          <p className="font-mono text-[0.72rem] text-[var(--text-muted)] tracking-[0.04em] mt-2">
+            © {new Date().getFullYear()} Bashir. Built with Next.js
+          </p>
+        </div>
+
+        {/* Social icons + controls */}
+        <div className="flex flex-wrap gap-3 items-center justify-center sm:justify-end">
+          {/* Back to top */}
+          <motion.button
+            onClick={scrollToTop}
+            whileHover={{ y: -3, scale: 1.1 }}
+            aria-label="Back to top"
+            className="w-10 h-10 rounded-[10px] bg-blue-400/10 border border-blue-400/20 flex items-center justify-center text-[var(--accent-blue)] cursor-pointer"
+          >
+            <ArrowUp size={18} />
+          </motion.button>
+
+          <ThemeToggle />
+        </div>
+      </div>
+    </footer>
+  );
+}

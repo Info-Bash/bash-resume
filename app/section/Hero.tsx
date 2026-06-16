@@ -1,6 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
 import { ArrowDown, Download, Mail, ExternalLink } from "lucide-react";
+import GradientOrbs from "../ui/GradientOrbs";
+import BackgroundGrid from "../ui/BackgroundGrid";
 import styles from "@/app/components/home.module.css";
 
 export default function Hero() {
@@ -17,40 +19,10 @@ export default function Hero() {
       className="relative min-h-screen flex items-center overflow-hidden"
     >
       {/* Animated gradient orbs */}
-      <div aria-hidden="true" className="absolute inset-0 overflow-hidden z-0">
-        <motion.div
-          animate={{ x: [0, 60, 0], y: [0, -40, 0], scale: [1, 1.2, 1] }}
-          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute w-[700px] h-[700px] rounded-full -top-[200px] -right-[200px] blur-[40px]"
-          style={{ background: "radial-gradient(circle, rgba(99,102,241,0.18) 0%, transparent 70%)" }}
-        />
-        <motion.div
-          animate={{ x: [0, -50, 0], y: [0, 60, 0], scale: [1, 1.15, 1] }}
-          transition={{ duration: 22, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute w-[600px] h-[600px] rounded-full -bottom-[100px] -left-[150px] blur-[40px]"
-          style={{ background: "radial-gradient(circle, rgba(34,211,238,0.12) 0%, transparent 70%)" }}
-        />
-        <motion.div
-          animate={{ x: [0, 30, 0], y: [0, -30, 0] }}
-          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut", delay: 4 }}
-          className="absolute w-[400px] h-[400px] rounded-full top-[40%] left-[40%] blur-[30px]"
-          style={{ background: "radial-gradient(circle, rgba(167,139,250,0.1) 0%, transparent 70%)" }}
-        />
-      </div>
+      <GradientOrbs />
 
       {/* Grid pattern */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `
-            linear-gradient(var(--grid-line) 1px, transparent 1px),
-            linear-gradient(90deg, var(--grid-line) 1px, transparent 1px)
-          `,
-          backgroundSize: "60px 60px",
-          maskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%)",
-        }}
-      />
+      <BackgroundGrid />
 
       {/* Content */}
       <div className="relative z-[1] max-w-[1200px] mx-auto px-6 pt-10 w-full">

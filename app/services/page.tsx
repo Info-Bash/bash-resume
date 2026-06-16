@@ -1,0 +1,60 @@
+import Navbar from "../components/layout/Navbar";
+import HeroSection from "@/app/section/services/HeroSection";
+import ProblemsSection from "@/app/section/services/ProblemsSection";
+import ServicesSection from "@/app/section/services/ServicesSection";
+import BenefitsSection from "@/app/section/services/BenefitsSection";
+import PortfolioSection from "@/app/section/services/PortfolioSection";
+import ProcessSection from "@/app/section/services/ProcessSection";
+import AboutSection from "@/app/section/services/AboutSection";
+import CTASection from "@/app/section/services/CTASection";
+import FloatingWhatsApp from "@/app/ui/FloatingWhatsApp";
+import Footer from "../components/layout/services/Footer";
+import styles from "@/app/components/home.module.css";
+
+const navLinks = [
+  { label: "Services", href: "#services" },
+  { label: "Benefits", href: "#benefits" },
+  { label: "Portfolio", href: "#portfolio" },
+  { label: "Process", href: "#process" },
+  { label: "About", href: "#about" },
+  { label: "Contact", href: "#contact" },
+];
+
+export default function LandingPage() {
+  return (
+    <main
+      className="relative min-h-screen antialiased bg-[var(--bg-primary)] text-[var(--text-primary)]"
+    >
+      <Navbar 
+        navLinks={navLinks}
+      />
+
+      <HeroSection />
+
+      {/* Divider */}
+      <div className={`${styles.sectionDivider} mb-0`} />
+
+      <ProblemsSection />
+
+      {/* Divider */}
+      <div className={`${styles.sectionDivider} mb-0`} />
+
+      <ServicesSection />
+
+      {/* Divider */}
+      <div className={`${styles.sectionDivider} mb-0`} />
+
+      <BenefitsSection />
+
+      {/* Divider */}
+      <div className={`${styles.sectionDivider} mb-0`} />
+      
+      <PortfolioSection />
+      <ProcessSection />
+      <AboutSection />
+      <CTASection />
+      <Footer />
+      <FloatingWhatsApp />
+    </main>
+  );
+}

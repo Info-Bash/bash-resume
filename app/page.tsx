@@ -11,14 +11,26 @@ import Contact from '@/app/section/Contact';
 import Footer from './components/layout/Footer';
 import styles from '@/app/components/home.module.css';
 
+const navLinks = [
+  { label: "About", href: "#about" },
+  { label: "Stack", href: "#stack" },
+  { label: "Projects", href: "#projects" },
+  { label: "Experience", href: "#experience" },
+  { label: "GitHub", href: "#github" },
+  { label: "Contact", href: "#contact" },
+];
+
 export default function Home() {
+
   return (
     <>
       {/* Scroll progress bar at top of viewport */}
       <ScrollProgress />
 
       {/* Sticky navigation */}
-      <Navbar />
+      <Navbar 
+        navLinks={navLinks}
+      />
 
       {/* Main content */}
       <main>

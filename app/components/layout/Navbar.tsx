@@ -4,16 +4,16 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
-const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Stack", href: "#stack" },
-  { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
-  { label: "GitHub", href: "#github" },
-  { label: "Contact", href: "#contact" },
-];
+ interface Navlink {
+  label: string;
+  href: string;
+}
 
-export default function Navbar() {
+interface NavbarProps{
+  navLinks: Navlink[];
+}
+
+export default function Navbar({navLinks}:NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
