@@ -25,7 +25,7 @@ export default function LandingPage() {
     <main
       className="relative min-h-screen antialiased bg-[var(--bg-primary)] text-[var(--text-primary)]"
     >
-      <Navbar 
+      <Navbar
         navLinks={navLinks}
       />
 
@@ -48,12 +48,26 @@ export default function LandingPage() {
 
       {/* Divider */}
       <div className={`${styles.sectionDivider} mb-0`} />
-      
+
       <PortfolioSection />
+
+      {/* Divider */}
+      <div className={`${styles.sectionDivider} mb-0`} />
+
       <ProcessSection />
+
+      {/* Divider */}
+      <div className={`${styles.sectionDivider} mb-0`} />
+
       <AboutSection />
+
+      {/* Divider */}
+      <div className={`${styles.sectionDivider} mb-0`} />
+
       <CTASection />
+
       <Footer />
+      
       <FloatingWhatsApp />
     </main>
   );

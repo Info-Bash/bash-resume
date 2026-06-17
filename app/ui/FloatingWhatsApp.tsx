@@ -1,10 +1,10 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, X } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { useState } from "react";
 
-const WHATSAPP_NUMBER = "2348000000000"; // Replace with your WhatsApp number
+const WHATSAPP_NUMBER = "2348072801183";
 const WHATSAPP_MESSAGE = encodeURIComponent(
   "Hi BASH Digital! I'm interested in building a digital solution for my business."
 );
@@ -22,22 +22,16 @@ export default function FloatingWhatsApp() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 8, scale: 0.95 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="relative rounded-2xl px-4 py-3 shadow-xl max-w-[220px]"
-            style={{
-              background: "var(--bg-card)",
-              border: "1px solid var(--border)",
-              boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
-            }}
+            className="relative rounded-2xl px-4 py-3 shadow-xl max-w-[220px] bg-[var(--bg-card)] border border-[var(--border)] shadow-[0_8px_32px_rgba(0,0,0,0.12)]"
           >
             {/* Arrow */}
             <div
-              className="absolute bottom-[-6px] right-5 w-3 h-3 rotate-45"
-              style={{ background: "var(--bg-card)", border: "1px solid var(--border)", borderTop: "none", borderLeft: "none" }}
+              className="absolute bottom-[-6px] right-5 w-3 h-3 rotate-45 bg-[var(--bg-card)] border border-[var(--border)] border-t-0 border-l-0"
             />
-            <p className="text-xs font-semibold mb-0.5" style={{ color: "var(--text-primary)" }}>
+            <p className="text-xs font-semibold mb-0.5 text-[var(--text-primary)]" >
               Chat with Me 👋
             </p>
-            <p className="text-xs leading-snug" style={{ color: "var(--text-secondary)" }}>
+            <p className="text-xs leading-snug text-[var(--text-secondary)]">
               Usually reply within a few minutes.
             </p>
           </motion.div>
@@ -58,13 +52,9 @@ export default function FloatingWhatsApp() {
         onMouseLeave={() => setTooltipVisible(false)}
         onFocus={() => setTooltipVisible(true)}
         onBlur={() => setTooltipVisible(false)}
-        className="flex items-center justify-center w-14 h-14 rounded-full shadow-2xl"
-        style={{
-          background: "#25D366",
-          boxShadow: "0 4px 24px rgba(37,211,102,0.40)",
-        }}
+        className="flex items-center justify-center w-14 h-14 rounded-full shadow-2xl bg-[#25D366] shadow-[0_4px_24px_rgba(37,211,102,0.40)]"
       >
-        <MessageCircle className="size-6 text-white" />
+        <FaWhatsapp className="size-6 text-white" />
       </motion.a>
     </div>
   );
