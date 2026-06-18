@@ -9,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
     },
     {
-      url: "https://bash-resume.vercel.app/webite-development",
+      url: "https://bash-resume.vercel.app/website-development",
       lastModified: new Date(),
     },
   ];
