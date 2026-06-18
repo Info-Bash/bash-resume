@@ -1,4 +1,5 @@
 
+import { Metadata } from 'next';
 import ScrollProgress from '@/app/ui/ScrollProgress';
 import Navbar from '@/app/components/layout/Navbar';
 import Hero from '@/app/section/Hero';
@@ -19,6 +20,12 @@ const navLinks = [
   { label: "GitHub", href: "#github" },
   { label: "Contact", href: "#contact" },
 ];
+
+export const metadata: Metadata = {
+  title: "BASH | Web Developer in Lagos Nigeria (Next.js & React)",
+  description:
+    "Full stack web developer in Lagos, Nigeria building fast, modern websites and web apps using Next.js, React, and Tailwind CSS.",
+};
 
 export default function Home() {
 

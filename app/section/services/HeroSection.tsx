@@ -52,12 +52,10 @@ export default function HeroSection() {
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6 text-[var(--text-primary)]"
         >
           Build a stronger{" "}
-          <span
-            className={`inline-block ${styles.gradientText}`}
-          >
+          <span className={styles.gradientText}>
             online presence
           </span>{" "}
-          for your business
+          with expert web development
         </motion.h1>
 
         {/* Subtext */}
@@ -65,8 +63,7 @@ export default function HeroSection() {
           variants={fadeUp}
           className="text-lg md:text-xl leading-relaxed max-w-2xl mb-10 text-[var(--text-secondary)]"
         >
-          BASH Digital creates professional websites, web applications, and digital solutions that help
-          businesses attract customers, build trust, and grow.
+          BASH Digital helps businesses build fast, modern websites and web applications using Next.js, React, and modern technologies to attract customers, build trust, and grow online.
         </motion.p>
 
         {/* CTAs */}

@@ -29,7 +29,7 @@ export default function ServicesSection() {
 
       <div className="relative max-w-6xl mx-auto">
         <ServiceSectionHeading
-          eyebrow="What I Build"
+          eyebrow="What We Build"
           title="Digital solutions for every stage of your business"
           subtitle="From a simple presence online to complex business tools - we build what your business actually needs."
         />

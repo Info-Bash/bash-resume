@@ -22,13 +22,13 @@ export default function AboutSection() {
       <div className="relative max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left: text */}
-          <motion.div
-            className="text-center lg:text-left">
+          <motion.div className="text-center lg:text-left">
             <SectionReveal>
               <span className="inline-block mb-3 px-3 py-1 rounded-full text-xs font-semibold tracking-widest uppercase text-(--accent-blue) bg-(--accent-glow) border border-(--border-accent)">
                 About Us
               </span>
             </SectionReveal>
+
             <SectionReveal delay={0.1}>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight mb-5 text-(--text-primary)">
                 About BASH Digital
@@ -37,14 +37,17 @@ export default function AboutSection() {
 
             <SectionReveal delay={0.2}>
               <p className="text-base leading-relaxed mb-4 text-[var(--text-secondary)]">
-                BASH Digital helps businesses turn ideas into fast, reliable, and scalable digital products.
-                We design and build modern websites and web applications tailored to real business needs.
+                Based in Lagos, Nigeria, BASH Digital helps businesses turn ideas into
+                fast, reliable, and scalable digital products. We design and build modern
+                websites and web applications tailored to real business needs.
               </p>
             </SectionReveal>
+
             <SectionReveal delay={0.3}>
               <p className="text-base leading-relaxed text-[var(--text-secondary)]">
-                Whether you're a local service business going online for the first time or an established company
-                upgrading your digital systems, We work closely with you to design and build solutions that fit your business goals and scale with growth.
+                Whether you're a local service business going online for the first time
+                or an established company upgrading its digital systems, we work closely
+                with you to create solutions that improve your online presence and support growth.
               </p>
             </SectionReveal>
           </motion.div>
@@ -52,7 +55,6 @@ export default function AboutSection() {
           {/* Right: pillars */}
           <motion.div variants={staggerContainerSlow} className="flex flex-col gap-4">
             {pillars.map((pillar, i) => {
-              const Icon = pillar.icon;
               return (
                 <SectionReveal
                   key={pillar.title}

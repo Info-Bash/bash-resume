@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Navbar from "../components/layout/Navbar";
 import HeroSection from "@/app/section/services/HeroSection";
 import ProblemsSection from "@/app/section/services/ProblemsSection";
@@ -10,6 +11,12 @@ import CTASection from "@/app/section/services/CTASection";
 import FloatingWhatsApp from "@/app/ui/FloatingWhatsApp";
 import Footer from "../components/layout/services/Footer";
 import styles from "@/app/components/home.module.css";
+
+export const metadata: Metadata = {
+  title: "Hire a Web Developer in Lagos | Next.js Website Development",
+  description:
+    "Need a website for your business? I build fast, modern, and responsive websites for companies in Lagos and Nigeria using Next.js and React.",
+};
 
 const navLinks = [
   { label: "Services", href: "#services" },

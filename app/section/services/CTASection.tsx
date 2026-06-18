@@ -58,7 +58,7 @@ export default function CTASection() {
               variants={fadeUp}
               className="text-base md:text-lg max-w-xl mx-auto mb-10 leading-relaxed text-(--text-secondary)"
             >
-              Let's build a digital solution that helps your business grow. Reach out — we respond quickly.
+              Let's build a digital solution that helps your business grow. Reach out - we respond quickly.
             </motion.p>
 
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
