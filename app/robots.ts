@@ -7,6 +7,10 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "*",
         allow: "/",
       },
+      {
+        userAgent: "Googlebot",
+        allow: "/"
+      }
     ],
     sitemap: "https://bash-resume.vercel.app/sitemap.xml",
   };

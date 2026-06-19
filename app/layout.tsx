@@ -14,6 +14,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://bash-resume.vercel.app"),
+
+  alternates: {
+    canonical: "/",
+  },
+
   title: {
     default: "BASH | Web Developer in Lagos",
     template: "%s | BASH",
@@ -22,8 +28,31 @@ export const metadata: Metadata = {
   description:
     "Web developer in Lagos Nigeria building modern websites and web apps for businesses using Next.js and React.",
 
+  keywords: ["Full-Stack Developer", "Web Developer", "Next.js", "NestJS", "TypeScript", "Reach", "PostgreSQ"],
+
   verification: {
     google: "ZNttGoLoHhwV2QDZ5m5EsS9-vLQU5qxgnN12a6yDWvw",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot:{
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+    }
+
+  },
+
+  openGraph: {
+    title: "BASH | Web Developer in Lagos",
+    description:
+      "Web developer in Lagos Nigeria building modern websites and web apps.",
+    url: "https://bash-resume.vercel.app",
+    siteName: "BASH Digital",
+    type: "website",
   },
 };
 

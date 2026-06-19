@@ -16,6 +16,10 @@ export const metadata: Metadata = {
   title: "Hire a Web Developer in Lagos | Next.js Website Development",
   description:
     "Need a website for your business? I build fast, modern, and responsive websites for companies in Lagos and Nigeria using Next.js and React.",
+
+  alternates:{
+    canonical: "https://bash-resume.vercel.app/website-development"
+  }
 };
 
 const navLinks = [
